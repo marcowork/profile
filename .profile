@@ -46,12 +46,6 @@ fi
 #   ------------------------------------------------------------
  export GOPROXY=https://goproxy.io,direct
 
-#   ------------------------------------------------------------
-# Bash completion
-# RTFM https://sourabhbajaj.com/mac-setup/BashCompletion/
-#   ------------------------------------------------------------
-
-[ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 
 #   ------------------------------------------------------------
 #  ALIAS MAKE TERMINAL BETTER
@@ -85,7 +79,7 @@ ql () { qlmanage -p "$*" >& /dev/null; }    # ql:           Opens any file in Ma
 alias DT='tee ~/Desktop/terminalOut.txt'    # DT:           Pipe content to file on MacOS Desktop
 
 #   ------------------------------------------------------------
-#   4. SEARCHING
+#   SEARCHING
 #   ------------------------------------------------------------
 
 alias qfind="find . -name "                 # qfind:    Quickly search for file
@@ -93,6 +87,13 @@ ff () { /usr/bin/find . -name "$@" ; }      # ff:       Find file under the curr
 ffs () { /usr/bin/find . -name "$@"'*' ; }  # ffs:      Find file whose name starts with a given string
 ffe () { /usr/bin/find . -name '*'"$@" ; }  # ffe:      Find file whose name ends with a given string
 
+#   ------------------------------------------------------------
+#   FUCK
+#   ------------------------------------------------------------
+
+eval $(thefuck --alias)
+# You can use whatever you want as an alias, like for Mondays:
+eval $(thefuck --alias FUCK)
 
 
 #   ------------------------------------------------------------
@@ -137,3 +138,10 @@ git_color() {
     fi
 }
 
+#   ------------------------------------------------------------
+#   GIT SETUP
+#   ------------------------------------------------------------
+git config --global user.name "Marco van Dam"
+git config --global http.proxy http://localhost:3128
+git config --global https.proxy http://localhost:3128
+git config --global color.ui true
